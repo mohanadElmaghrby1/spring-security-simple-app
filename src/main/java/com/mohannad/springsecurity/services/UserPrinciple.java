@@ -1,4 +1,4 @@
-package com.mohannad.springsecurity.security;
+package com.mohannad.springsecurity.services;
 
 import com.mohannad.springsecurity.model.User;
 import org.springframework.security.core.GrantedAuthority;
