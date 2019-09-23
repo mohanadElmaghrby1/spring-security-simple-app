@@ -8,6 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * helper class used to wrap use object inside UserDetails
+ */
 public class UserPrinciple implements UserDetails {
     private User user;
 
