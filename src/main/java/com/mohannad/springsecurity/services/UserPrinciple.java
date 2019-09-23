@@ -5,8 +5,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * helper class used to wrap use object inside UserDetails
@@ -20,7 +22,11 @@ public class UserPrinciple implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority("USER"));
+        List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
+        user.getRoles().forEach( role -> {
+            list.add(new SimpleGrantedAuthority(role.getRole()));
+        });
+        return list;
     }
 
     @Override
